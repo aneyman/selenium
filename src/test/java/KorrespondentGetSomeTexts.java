@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class KorrespondentGetSomeTexts {
 
 
@@ -20,7 +22,8 @@ public class KorrespondentGetSomeTexts {
 
     @Test
     public void korrTest() throws InterruptedException {
-        driver.navigate().to("https://korrespondent.net/");
+        driver.get("https://korrespondent.net/");
+        TimeUnit.SECONDS.sleep(2);
         String searchtext = driver.findElement(By.xpath("//*[@id=\"search_div\"]/a/b")).getText();
         System.out.println("search text = " + searchtext);
         String searchFirstNews = driver.findElement(By.xpath("//*[@id=\"ajNews1055\"]/div[2]/div[2]/div[1]/div[2]/a")).getText();
